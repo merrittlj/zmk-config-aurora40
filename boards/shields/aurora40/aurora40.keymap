@@ -17,6 +17,11 @@
     //      | 30  31  32  33  34 |    | 35  36  37  38  39 |
     //      ----------------------    ----------------------
 
+    &lt {
+        tapping-term-ms = <2000>; // time until hold expires with unless interrupted flavor
+        flavor = "tap-unless-interrupted";
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
