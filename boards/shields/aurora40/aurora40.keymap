@@ -17,9 +17,15 @@
     //      | 30  31  32  33  34 |    | 35  36  37  38  39 |
     //      ----------------------    ----------------------
 
-    &lt {
-        tapping-term-ms = <2000>; // time until hold expires with unless interrupted flavor
-        flavor = "tap-unless-interrupted";
+    behaviors {
+        my_lt: my_layer_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-unless-interrupted";
+            tapping-term-ms = <2000>; // time until hold expires with unless interrupted flavor
+            bindings = <&mo>, <&kp>;
+            display-name = "Layer-Tap";
+        };
     };
 
     keymap {
@@ -31,7 +37,7 @@
                 &kp APOS    &kp COMMA   &kp DOT     &kp P       &kp Y               &kp F           &kp G       &kp C       &kp R       &kp L
                 &kp A       &kp O       &kp E       &kp U       &kp I               &kp D           &kp H       &kp T       &kp N       &kp S
                 &kp FSLH    &kp Q       &kp J       &kp K       &kp X               &kp B           &kp M       &kp W       &kp V       &kp Z
-                &kp LGUI    &kp LCTRL   &kp LALT    &kp LSHFT   &kp SPACE           &lt QUI LGUI    &mo SYM     &mo FUN     &to AL2     &to AL3
+                &kp LGUI    &kp LCTRL   &kp LALT    &kp LSHFT   &kp SPACE           &my_lt QUI LGUI    &mo SYM     &mo FUN     &to AL2     &to AL3
             >;
         };
 
